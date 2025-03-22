@@ -2,7 +2,7 @@ services:
   - name: laravel-app
     type: web
     runtime: docker
-    repo: your-repo
+    repo: https://github.com/juanbenito-aeg/laravel-12-rest-api
     plan: free
     envVars:
       - key: APP_ENV

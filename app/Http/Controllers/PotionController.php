@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Potion;
 use Illuminate\Http\Request;
 
 class PotionController extends Controller
@@ -11,7 +12,7 @@ class PotionController extends Controller
      */
     public function index()
     {
-        //
+        return Potion::with("ingredients", "wizards")->get();
     }
 
     /**
@@ -19,7 +20,14 @@ class PotionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "magical_name" => "required|string|max:50",
+            "description" => "required|string|max:200",
+            "curative" => "required|boolean",
+            "magic_level_required" => "required|integer|between:1,50",
+        ]);
+
+        return Potion::create($request->all());
     }
 
     /**
@@ -27,7 +35,7 @@ class PotionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Potion::with("ingredients", "wizards")->findOrFail($id);
     }
 
     /**
@@ -35,7 +43,10 @@ class PotionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $potion = Potion::findOrFail($id);
+        $potion->update($request->all());
+    
+        return $potion;
     }
 
     /**
@@ -43,6 +54,7 @@ class PotionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Potion::destroy($id);
+        return response()->json(["message" => "Potion deleted"]);
     }
 }

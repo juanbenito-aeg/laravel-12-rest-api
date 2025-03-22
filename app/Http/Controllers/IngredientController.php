@@ -20,15 +20,13 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     "ingredient_name" => "required|string|max:50",
-        //     "price" => "required|integer|numeric|between:10,100",
-        //     "rarity" => "required|string|max:50",
-        // ]);
+        $request->validate([
+            "ingredient_name" => "required|string|max:50",
+            "price" => "required|integer|between:10,100",
+            "rarity" => "required|string|max:50",
+        ]);
 
-        // return Ingredient::create($request->all());
-
-        return Ingredient::factory()->create();
+        return Ingredient::create($request->all());
     }
 
     /**

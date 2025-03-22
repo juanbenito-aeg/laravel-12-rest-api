@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class WizardPotion extends Model
 {
-    // use HasFactory;
+    use HasFactory;
 
     protected $table = "wizards_potions";
     public $timestamps = false;

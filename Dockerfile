@@ -1,5 +1,5 @@
 # Usa la imagen oficial de PHP con Apache
-FROM php:8.2-apache
+FROM php:8.4.5-apache
 
 # Instala dependencias necesarias, incluyendo el driver de PostgreSQL
 RUN apt-get update && apt-get install -y \

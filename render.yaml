@@ -8,18 +8,18 @@ services:
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
-        value: true
+        value: false
       - key: APP_KEY
         sync: false
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
-        fromDatabase: postgres
+        sync: false
       - key: DB_PORT
         value: 5432
       - key: DB_DATABASE
-        fromDatabase: postgres
+        sync: false
       - key: DB_USERNAME
-        fromDatabase: postgres
+        sync: false
       - key: DB_PASSWORD
-        fromDatabase: postgres
+        sync: false

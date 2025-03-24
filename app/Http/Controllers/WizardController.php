@@ -25,6 +25,8 @@ class WizardController extends Controller
             "age" => "required|integer|min:50",
             "magic_level" => "required|integer|between:1,50",
         ]);
+
+        return Wizard::create($request->all());
     }
 
     /**
